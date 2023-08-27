@@ -1,0 +1,16 @@
+.h1 {
+    width: 15ch;
+    margin-inline: auto;
+    margin-bottom: 10vh;
+}
+
+#span {
+    color: var(--lighter-brown);
+    opacity: inherit;
+    transition: opacity 0.5s;
+}
+:global(.dark) #span {color: var(--off-white);}
+
+#span.disappearing {
+    opacity: 0;
+}

@@ -1,0 +1,126 @@
+.main {
+    color: var(--dark-brown);
+    padding: 3rem 0;
+}
+:global(.dark) .main {
+    color: var(--off-white);
+}
+
+.form {
+    display: block;
+    margin-top: 2rem;
+    margin-inline: auto;
+    width: min(90vw, 500px);
+}
+
+.input {
+    all: unset;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+    border: 1px solid var(--dark-brown);
+    width: calc(100% - 2rem - 2px);
+    padding: 1rem;
+    margin-bottom: 0.5ch;
+    border-radius: 0.2rem;
+}
+.input:focus {
+    background-color: var(--off-black-01);
+}
+:global(.dark) .input {
+    border: 1px solid var(--off-white);
+}
+:global(.dark) .input:focus {
+    background-color: var(--off-white-01);
+}
+
+button.input {
+    display: block;
+    text-align: center;
+    margin-inline: auto;
+    transform: scaleX(1);
+    transition: transform 0.5s;
+}
+button.input:enabled:hover {
+    cursor: pointer;   
+    background: rgb(0, 255, 0);
+    background: radial-gradient(rgba(0, 255, 0, 0.3), rgba(0, 255, 0, 0));
+}
+button.input:disabled {
+    transform: scaleX(0);
+}
+
+.signup {
+    font-size: max(0.6rem, 16px);
+}
+
+.warningMessage {
+    margin: 0 0 0.3rem 0;
+    color: rgb(250, 0, 0);
+    font-size: max(0.6rem, 16px);
+    font-weight: bold;
+}
+.goodMessage {
+    margin: 0 0 0.3rem 0;
+    color: rgb(0, 170, 0);
+    font-size: max(0.6rem, 16px);
+    font-weight: bold;
+}
+:global(.dark) .warningMessage {
+    color: rgb(255, 79, 79);
+    text-shadow: rgb(110, 90, 90) 1px 0 10px;
+}
+:global(.dark) .goodMessage {
+    color: rgb(0, 200, 0);
+    text-shadow: rgb(95, 115, 95) 1px 0 10px;
+}
+
+@media screen and (min-width: 1000px) {
+    .form {
+        width: min-content;
+        display: grid;
+        grid-template-areas: 
+        'i1 i2'
+        'w1 w2'
+        'i3 i4'
+        'w3 w4'
+        'i5 i6'
+        'w5 w6'
+        'i7 i8'
+        'w7 m1'
+        'm2 .';       
+        gap: 0.5ch;
+    }
+    .emailInput{grid-area: i1;}
+    .pwInput{grid-area: i2;}
+    .phoneInput{grid-area: i3;}
+    .fnInput{grid-area: i4;}
+    .lnInput{grid-area: i5;}
+    .cityInput{grid-area: i6;}
+    .addressInput{grid-area: i7;}
+    .submitInput{grid-area: i8;}
+    .emailMessage{grid-area: w1}
+    .pwMessage{grid-area: w2}
+    .phoneMessage{grid-area: w3}
+    .fnMessage{grid-area: w4}
+    .lnMessage{grid-area: w5}
+    .cityMessage{grid-area: w6}
+    .addressMessage{grid-area: w7}
+    .failureMessage{grid-area: m1}
+    .alreadyMessage{grid-area: m2}
+    
+    .input {
+        width: unset;
+        margin: 0;
+    }
+
+    button.input {
+        padding: 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .warningMessage, .goodMessage {
+        margin: 0;
+    }
+}

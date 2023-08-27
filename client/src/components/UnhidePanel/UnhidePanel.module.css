@@ -1,0 +1,69 @@
+.container {
+    white-space: nowrap;
+    overflow-x: auto;
+    padding: 1ch;
+}
+
+.product {
+    display: inline-block;
+    height: 5rem;
+    max-width: 5rem;
+    margin-right: 1rem;
+    font-size: max(0.6rem, 16px);
+    padding: 1ch;
+    white-space: normal;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: antiquewhite;
+    color: var(--off-black);
+    cursor: pointer;
+}
+
+.detail {
+    font-size: 1em;
+    margin: 0;
+}
+
+.detail.price {
+    text-align: center;
+}
+
+.loadMoreDiv {
+    height: 100%;
+    width: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loadMoreDiv button {
+    all: unset;
+    cursor: pointer;
+    font-size: 3em;
+}
+
+.input {
+    font-size: unset;
+    text-align: center;
+}
+button.input {
+    cursor: pointer;
+}
+
+.msg {
+    font-size: max(0.6em, 16px);
+    font-weight: bold;
+}
+.msg.valid {
+    color: rgb(0, 170, 0);
+}
+:global(.dark) .msg.valid {
+    color: rgb(96, 255, 96);
+    text-shadow: rgb(143, 198, 143) 1px 0 10px;
+}
+.msg.invalid {
+    color: rgb(250, 0, 0);
+}
+:global(.dark) .msg.invalid {
+    color: rgb(255, 79, 79);
+    text-shadow: rgb(110, 90, 90) 1px 0 10px;
+}

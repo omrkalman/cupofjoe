@@ -1,0 +1,7 @@
+Prompt the user to switch between list and carousel views.
+When loading new items in category carousel: 
+    Fix the ugly snap
+    Change it from being a 404 to 200
+    Hide carousel arrows if there is no need for them
+When Going to log-in page, auto-populate credentials.
+When Going to sign-up page, auto-populate details.

@@ -1,0 +1,63 @@
+.main {
+    color: var(--dark-brown);
+    padding: 3rem 0;
+}
+:global(.dark) .main {
+    color: var(--off-white);
+}
+
+.form {
+    display: block;
+    margin-top: 2rem;
+    margin-inline: auto;
+    width: min(90vw, 500px);
+}
+
+.input {
+    all: unset;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+    border: 1px solid var(--dark-brown);
+    width: calc(100% - 2rem - 2px);
+    padding: 1rem;
+    border-radius: 0.2rem;
+}
+.input:focus {
+    background-color: var(--off-black-01);
+}
+:global(.dark) .input {
+    border: 1px solid var(--off-white);
+}
+:global(.dark) .input:focus {
+    background-color: var(--off-white-01);
+}
+
+input.input {
+    margin-bottom: 1ch;
+}
+
+button.input {
+    display: block;
+    text-align: center;
+    margin-inline: auto;
+    transform: scaleX(1);
+    transition: transform 0.5s;
+}
+button.input:enabled:hover {
+    cursor: pointer;   
+    background: rgb(0, 255, 0);
+    background: radial-gradient(rgba(0, 255, 0, 0.3), rgba(0, 255, 0, 0));
+}
+button.input:disabled {
+    transform: scaleX(0);
+}
+
+.signup {
+    font-size: max(0.6rem, 16px);
+}
+
+.failureMessage {
+    color: red;
+    font-size: max(0.6rem, 16px);
+}

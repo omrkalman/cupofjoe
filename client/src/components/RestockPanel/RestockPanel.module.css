@@ -1,0 +1,44 @@
+.grid {
+    margin-top: 1rem;
+    width: fit-content;
+    display: grid;
+    grid-template-columns: auto auto auto;    
+    gap: 0.4rem;
+}
+
+.input {
+    font-size: unset;
+    text-align: center;
+}
+
+.table, .table tr, .table th, .table td {
+    border: 1px solid gray;
+    margin: 0.5ch;
+}
+.table td, .table th {
+    padding: 0.5ch;
+}
+
+button.unset {
+    all: unset;
+    cursor: pointer;
+}
+
+.msg {
+    font-size: max(0.6em, 16px);
+    font-weight: bold;
+}
+.msg.valid {
+    color: rgb(0, 170, 0);
+}
+:global(.dark) .msg.valid {
+    color: rgb(96, 255, 96);
+    text-shadow: rgb(143, 198, 143) 1px 0 10px;
+}
+.msg.invalid {
+    color: rgb(250, 0, 0);
+}
+:global(.dark) .msg.invalid {
+    color: rgb(255, 79, 79);
+    text-shadow: rgb(110, 90, 90) 1px 0 10px;
+}

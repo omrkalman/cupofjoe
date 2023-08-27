@@ -1,0 +1,26 @@
+.summary {
+    margin-bottom: 0.5ch;
+}
+
+.detailsBtn {
+    all: unset;
+    cursor: pointer;
+    margin-left: 1ch;
+    font-weight: bold;
+}
+
+.detailsBtn span {
+    display: inline-block;
+    transition: transform 0.4s;
+}
+.detailsBtn span.open {
+    transform: rotate(90deg);
+}
+
+.linesContainer {
+    transition: all 1s;
+    text-align: center;
+}
+.linesContainer.open {
+    padding: 1rem;
+}

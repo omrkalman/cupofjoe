@@ -1,0 +1,10 @@
+.main {
+    min-height: 100vh;
+    background: var(--gradient-middle);
+    background: linear-gradient(180deg, var(--gradient-middle) 0%, rgba(244,244,244,1));
+}
+
+.main:global(.dark) {
+    background: var(--gradient-middle);
+    background: linear-gradient(0deg, var(--gradient-middle) 0%, rgba(56,44,44,1));
+}

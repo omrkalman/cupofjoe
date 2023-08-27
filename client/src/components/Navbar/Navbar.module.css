@@ -1,0 +1,158 @@
+.navbarContainer {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    color: var(--dark-brown);
+    background: var(--gradient-middle);
+    background: linear-gradient(0deg, var(--gradient-middle-transparent) 0%, var(--gradient-middle));
+}
+
+:global(.dark) .navbarContainer {
+    color: var(--off-white);
+    background: var(--off-black);
+    background: linear-gradient(0deg, var(--off-black-transparent) 0%, var(--off-black));
+}
+
+/* .navbar {
+    display: flex;
+    align-items: start;
+    padding: 0 0 0.1rem 0;
+    font-size: 0.6rem;
+    color: inherit;
+} */
+
+.navbar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    padding: 0 0 0.1rem 0;
+    font-size: 0.6rem;
+    color: inherit;
+}
+
+.navbarMain {
+    display: flex;
+    align-items: start;
+    overflow-x: auto;
+}
+.navbarMain::-webkit-scrollbar {
+    height: 10px;
+}
+.navbarMain::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+.navbarMain::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 100px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+}
+.navbarMain::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+}
+
+.navbar:hover {
+    font-size: 1rem;
+}
+
+.navbar:hover .navlink {
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+}
+
+.navlink {
+    all: unset;
+    display: inline-block;
+    cursor: pointer;
+    padding: 0.2rem 0.6rem;
+    margin-left: 0.1rem;
+    width: 4.5rem;
+    min-width: 4.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    transition: all 0.7s;
+}
+
+.aside {
+    padding: 0.2rem;
+    text-align: end;
+    transition: all 0.7s;
+}
+
+.navlink option {
+    background-color: var(--off-white);
+    font-size: 0.6rem;
+}
+:global(.dark) .navlink option {
+    background-color: var(--off-black);
+}
+
+:global(.dark) .navlink {
+    border: 1px solid var(--off-white);
+    border-radius: 0.2rem;
+}
+
+.navlink:global(.active) {
+    font-weight: bold;
+    text-shadow:
+    0 0 5px #fff, 0 0 10px #fff,
+    0 0 20px #fff, 0 0 40px #fff;
+}
+
+:global(.dark) .navlink:global(.active) {
+    text-shadow:
+    0 0 5px #888, 0 0 10px #888,
+    0 0 20px #888, 0 0 40px #888;
+}
+
+@media screen and (max-width: 749px) {
+    .navbar { 
+        font-size: 1rem;        
+    }
+    .navbar:hover .navlink { 
+        padding-top: 0.2rem; 
+        padding-bottom: 0.2rem; 
+    }
+    .navlink option { font-size: 1rem; }
+}
+
+.priceFilters.open > * {
+    display: block;
+}
+.priceFilters > * {
+    display: none;
+    background-color: var(--off-white);
+    color: var(--off-black);
+    width: 100%;
+    margin: 0;
+}
+:global(.dark) .priceFilters > * {
+    background-color: var(--off-black);
+    color: var(--off-white);
+}
+.priceFilters > div:nth-of-type(1) {border-radius: 0.2rem 0.2rem 0 0;}
+.priceFilters > div:nth-last-of-type(1) {border-radius: 0 0 0.2rem 0.2rem;}
+
+.priceFilters input, .priceFilters button {
+    color: inherit;
+    border: 1px solid var(--off-black);
+    border-radius: 0.2rem;
+    font-size: inherit;
+}
+
+.priceFilters button {
+    width: min-content;
+    cursor: pointer;
+    margin-top: 0.5ch;
+}
+
+.priceFilters input {
+    background-color: inherit;
+    width: 3ch;
+    margin: 0.5ch;
+}
+
+:global(.dark) .priceFilters input, :global(.dark) .priceFilters button {
+    border: 1px solid var(--off-white);
+}

@@ -1,0 +1,125 @@
+.container {
+    margin-bottom: 20vh;
+}
+
+.containerGrid {
+    height: fit-content;
+    min-height: 50vh;
+    /* transform: scale(0.8); */
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+:global(.onScreen) .containerGrid {
+    /* transform: scale(1); */
+    opacity: 1;
+    position: relative;
+}
+
+.grid {
+    --horizontal-gap: 50px;
+    /* background-color: var(--off-white); */
+    background-color: transparent;
+    background: repeating-linear-gradient(15deg, var(--off-white), var(--off-white) 2px, transparent 7px, transparent 10px);
+    padding: 0.4rem var(--horizontal-gap);
+    white-space: nowrap;
+    overflow: auto;
+    margin-bottom: 3rem;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+/* Chrome, Safari and Opera  */
+.grid::-webkit-scrollbar {
+    display: none;
+}
+
+.grid > * {
+    margin-left: var(--horizontal-gap);
+    scroll-snap-align: center;
+}
+.grid > *:first-child {
+    margin-left: 0;
+}
+
+.loaderContainer {    
+    width: 100%;
+    display: none;
+    text-align: center;
+}
+@media screen and (min-width: 1000px) {
+    .loaderContainer { width: calc(calc(100% - var(--horizontal-gap)) / 2); }
+}
+@media screen and (min-width: 1500px) {
+    .loaderContainer { width: calc(calc(100% - calc(var(--horizontal-gap) * 2)) / 3); }
+}
+.loaderContainer.show {
+    display: inline-block;
+}
+
+.loader { 
+    display: inline-block;
+    width: min-content;
+}
+
+:global(.dark) .grid {
+    background-color: transparent;
+    background-image: linear-gradient(135deg, var(--lighter-brown) 25%, transparent 25%), linear-gradient(225deg, var(--lighter-brown) 25%, transparent 25%), linear-gradient(45deg, var(--lighter-brown) 25%, transparent 25%), linear-gradient(315deg, var(--lighter-brown) 25%, transparent 25%);
+    background-position: 19px 0, 19px 0, 0 0, 0 0;
+    background-size: 19px 19px;
+    background-repeat: repeat;
+}
+
+.intro {
+    padding-top: 10vh;
+    text-align: center;
+    color: var(--lighter-brown);
+    opacity: 0;
+    transition: opacity 0.75s 0.75s;
+}
+
+.intro > * {
+    display: inline-block;
+    margin: 1rem;
+}
+
+.slogan { 
+    font-style: italic; 
+}
+
+:global(.onScreen) .intro {
+    opacity: 1;
+}
+
+:global(.dark) .intro {
+    color:var(--off-white);
+}
+
+.scrollBtn {
+    all:unset;
+    visibility: hidden;
+    cursor: pointer;
+    font-size: 3rem;
+    color: white;
+    opacity: 0.5;
+    position: absolute;
+    height: 100%;
+    z-index: 20;
+}
+.scrollBtn.show {
+    visibility: visible;
+}
+
+.scrollBtn:hover {
+    opacity: 0.9;
+}
+
+.scrollBtn.left {
+    left:0;
+    transform: scaleX(-1);
+}
+
+.scrollBtn.right {
+    right:0;
+}

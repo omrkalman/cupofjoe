@@ -1,0 +1,45 @@
+.container {
+    display: inline-block;
+    text-align: center;
+}
+
+.switch input {
+    position: absolute;
+    opacity: 0;
+}
+
+/**
+   * 1. Adjust this to size
+   */
+
+.switch {
+    cursor: pointer;
+    display: inline-block;    
+    height: 1em;
+    /* height: 10px; */
+    width: 2em;
+    /* width: 20px; */
+    background: #BDB9A6;
+    border-radius: 1em;
+    /* border-radius: 10px; */
+}
+
+.switch div {
+    height: 1em;
+    /* height: 10px; */
+    width: 1em;
+    /* width: 10px; */
+    border-radius: 1em;
+    /* border-radius: 10px; */
+    background: #FFF;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    -webkit-transition: transform 300ms;
+    -moz-transition: transform 300ms;
+    transition: transform 300ms;
+}
+
+.switch input:checked+div {
+    -webkit-transform: translate3d(100%, 0, 0);
+    -moz-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+}

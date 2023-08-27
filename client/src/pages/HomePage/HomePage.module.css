@@ -1,0 +1,11 @@
+.main {
+    padding: 3rem 0;
+    color: var(--dark-brown);
+}
+:global(.dark) .main {
+    color: var(--off-white);
+}
+
+.main h1 {
+    text-align: center;
+}

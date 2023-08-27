@@ -1,0 +1,55 @@
+.item {
+    border-bottom: 1px solid;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    padding: 1ch;
+    background-color: var(--off-white-03);
+    display: flex;
+    justify-content: space-between;
+}
+:global(.dark) .item {
+    background-color: var(--off-black-03);
+}
+
+.item:first-of-type {
+    border-top-right-radius: 0.2rem;
+    border-top-left-radius: 0.2rem;
+    border-top: 1px solid;
+}
+
+.item:last-of-type {
+    border-bottom-right-radius: 0.2rem;
+    border-bottom-left-radius: 0.2rem;
+}
+
+.detail {
+    min-width: 20%;
+    margin-left: 1ch;
+    text-align: center;
+}
+
+.detail:first-child {
+    margin-left: 0;
+}
+
+.detail.name {
+    width: 100%;
+    cursor: pointer;
+}
+
+button.detail {
+    min-width: none;
+    all: unset;
+    cursor: pointer;
+}
+
+.qtyBtn {
+    all: unset;
+    cursor: pointer;
+    margin: 0 0.5ch;
+    font-size: 1.2em;
+}
+
+.outOfStock {
+    color: red;
+}

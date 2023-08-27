@@ -1,0 +1,19 @@
+.card-button {
+    all: unset;
+    display: inline-block;
+    width: 1rem;
+    min-width: 1rem;
+    height: 1rem;
+    min-height: 1rem;
+    padding: .3em;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: .3s ease-in-out;
+    background-color: var(--color2);
+    fill: var(--color1);
+}
+
+.card-button:hover {
+    background-color: var(--color1);
+    fill: var(--color3);
+}

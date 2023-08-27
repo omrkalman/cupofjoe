@@ -1,0 +1,44 @@
+.container.loading {
+    margin-right: 5px;
+    min-width: 50vh;
+}
+
+.container {
+    min-width: 40vh;
+    position: relative;
+    display: inline-block;
+    height: 100%;
+}
+
+.container img {
+    height: 100%;
+}
+
+.info {
+    opacity: 0.7;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--off-white);
+    transition: opacity 0.7s;
+}
+:global(.dark) .info {
+    background-color: var(--off-black);
+}
+@media (hover: hover) {
+    .loaded .info {
+        opacity: 0;
+    }
+}
+.info:hover {
+    opacity: 0.7;
+}
+
+.info p {
+    margin: 0;
+}

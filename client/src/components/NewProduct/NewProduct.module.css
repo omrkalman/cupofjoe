@@ -1,0 +1,47 @@
+.main {
+    margin: 2rem 0;
+}
+
+.inputContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.4rem;
+}
+
+.inputContainer input, textarea {
+    font-size: unset;
+    padding: 1ch;
+}
+
+.msg {
+    font-size: max(0.6em, 16px);
+    font-weight: bold;
+}
+.msg.valid {
+    color: rgb(0, 170, 0);
+}
+:global(.dark) .msg.valid {
+    color: rgb(96, 255, 96);
+    text-shadow: rgb(143, 198, 143) 1px 0 10px;
+}
+.msg.invalid {
+    color: rgb(250, 0, 0);
+}
+:global(.dark) .msg.invalid {
+    color: rgb(255, 79, 79);
+    text-shadow: rgb(110, 90, 90) 1px 0 10px;
+}
+
+.submit {
+    display: block;
+    width:fit-content;
+    margin-inline: auto;
+    font-size: 2rem;
+    padding: 1ch;
+}
+
+.result {
+    text-align: center;
+    margin: 0;
+    font-size: 1em;
+}

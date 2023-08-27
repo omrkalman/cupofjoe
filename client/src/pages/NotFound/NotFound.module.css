@@ -1,0 +1,17 @@
+.h1 {
+    margin: 0;
+    padding: 3rem 0;
+    text-align: center;
+    color: var(--dark-brown);
+}
+
+:global(.dark) .h1 {
+    color: var(--off-white);
+}
+
+.illustration {
+    display: block;
+    width: min(70vw, 300px);
+    margin-top: 3rem;
+    margin-inline: auto;
+}

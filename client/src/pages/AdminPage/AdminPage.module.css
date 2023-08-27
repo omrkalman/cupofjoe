@@ -1,0 +1,15 @@
+.main {
+    padding: 3rem 1rem;
+    color: var(--off-black);
+}
+:global(.dark) .main {
+    color: var(--off-white);
+}
+
+.controls {
+    font-size: unset;
+    display: block;
+    width: fit-content;
+    margin-inline: auto;
+}
+

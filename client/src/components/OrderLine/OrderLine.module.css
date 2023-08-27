@@ -1,0 +1,7 @@
+.line {
+    display: block;
+    width: fit-content;
+    min-width: 50%;
+    margin: 0;
+    margin-inline: auto;
+}
