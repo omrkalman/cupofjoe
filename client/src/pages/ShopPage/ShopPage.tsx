@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { visualActions } from '../../store/visual';
 import { filtersActions } from '../../store/filters';
 import ProductList from '../../components/ProductList/ProductList';
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css"
 
 const ShopPage = () => {
     const dispatch = useDispatch();
@@ -16,9 +18,22 @@ const ShopPage = () => {
     
     useEffect(()=> {
         dispatch(visualActions.activateShop());
+        
+        const timeout = setTimeout(() => {
+            Toastify({
+                text: "Don't forget to try list view →",
+                duration: 3000,
+                offset: {
+                    x: 100,
+                    y: 0
+                }
+              }).showToast();
+        }, 3000);
+
         return ()=> {
             dispatch(visualActions.deactivateShop());
             dispatch(filtersActions.resetPage());
+            clearTimeout(timeout)
         }
     }, []);
    
