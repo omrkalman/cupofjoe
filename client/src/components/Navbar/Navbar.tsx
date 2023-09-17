@@ -14,7 +14,8 @@ import { favsActions } from "../../store/favs";
 const navLinks: Array<{children: string, to: string, isAuth?: boolean, isAdmin?: boolean}> = [
     {
         children: 'Home',
-        to: ROUTES.HomePage
+        to: ROUTES.HomePage,
+        isAuth: true
     },
     {
         children: 'Shop',

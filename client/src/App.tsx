@@ -21,7 +21,6 @@ export default function App() {
       <main className={`${styles.main} dark`}>
         <Router></Router>
       </main>
-      <footer className='dark'></footer>
     </Fragment>
   } //else 
   return <Fragment>

@@ -14,7 +14,7 @@ import AdminPage from "../pages/AdminPage/AdminPage";
 const Router = () => {
     return (
         <Routes>
-            <Route path={ROUTES.HomePage} element={<ProtectedRoute element={<DashboardPage />} alt={<HomePage />} />} />            
+            <Route path={ROUTES.HomePage} element={<ProtectedRoute element={<DashboardPage />} alt={"shop"} />} />            
             <Route path={ROUTES.NotFound} element={<NotFound />} />
             <Route path={ROUTES.ShopPage} element={<ShopPage />} />
             <Route path={ROUTES.LoginPage} element={<LoginPage />} />

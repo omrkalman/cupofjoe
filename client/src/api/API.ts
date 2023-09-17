@@ -8,7 +8,7 @@ axios.interceptors.request.use((config) => {
   return config;
 });
 
-axios.defaults.baseURL = '/api';
+axios.defaults.baseURL = import.meta.env.VITE_HOST + '/api';
 
 class API {
   route: string;
