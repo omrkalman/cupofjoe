@@ -7,8 +7,8 @@ import useLogin from "../../hooks/uselogin";
 
 const LoginPage = () => {
     const [inputValues, setInputValues] = useState({
-        email: '',
-        pw: ''
+        email: 'guest@example.com',
+        pw: 'Guest12345%'
     });
 
     const [formValid, setFormValid] = useState(false);
