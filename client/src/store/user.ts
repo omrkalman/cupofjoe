@@ -17,6 +17,9 @@ const user = createSlice({
   name: "user",
   initialState,
   reducers: {
+    logIn(state) {
+      state.isAuth= true;
+    },
     set(state, action) {
       state.isAuth= true;
       state.isAdmin = !!(action.payload.isAdmin);
