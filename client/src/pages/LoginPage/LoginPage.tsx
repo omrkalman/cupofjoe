@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import styles from './LoginPage.module.css';
 import { NavLink, useNavigate } from "react-router-dom";
 import ROUTES from "../../routes/routes";
@@ -7,8 +7,8 @@ import useLogin from "../../hooks/uselogin";
 
 const LoginPage = () => {
     const [inputValues, setInputValues] = useState({
-        email: 'guest@example.com',
-        pw: 'Guest12345%'
+        email: '',
+        pw: ''
     });
 
     const [formValid, setFormValid] = useState(false);
@@ -17,10 +17,14 @@ const LoginPage = () => {
 
     const login = useLogin();
 
-    const inputChangeHandler = useCallback((ev: React.ChangeEvent<HTMLInputElement>) => {
+    const inputChangeHandler = useCallback((ev: React.ChangeEvent<HTMLInputElement> | Array<React.ChangeEvent<HTMLInputElement>>) => {
 
-        const update = {[ev.target.name]: ev.target.value};
-        const updated = {...inputValues, ...update};
+        let update, updated;
+
+        if (Array.isArray(ev)) update = Object.fromEntries(ev.map(e => [ [e.target.name], e.target.value ]));
+        else update = {[ev.target.name]: ev.target.value};
+
+        updated = {...inputValues, ...update};
 
         setInputValues(updated);
         
@@ -32,6 +36,14 @@ const LoginPage = () => {
         }
 
     }, [inputValues]);
+
+    useEffect(() => {
+        const events = [
+            { target: { name: 'email', value: 'guest@example.com' }},
+            { target: { name: 'pw', value: 'Guest12345%' }}
+        ];
+        inputChangeHandler(events as Array<React.ChangeEvent<HTMLInputElement>>);
+    }, [])
 
     const navigate = useNavigate();
     const submitHandler = useCallback((ev: React.FormEvent<HTMLFormElement>)=> {
