@@ -36,8 +36,10 @@ router.get('/', mw.isUser, async(req, res) => {
         switch (error.origin) {
             case 'model':
                 res.status(404).json(error);
+                break;
+            default:
+                res.status(500).json();
         }
-        res.status(500).json();
     }
 });
 

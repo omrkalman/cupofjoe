@@ -45,6 +45,51 @@ const isUser = async(req, res, next) => {
 }
 
 /**
+ * Verifies the token from req is authentic and belongs to a user who is not a guest
+ */
+const isNonGuest = async(req, res, next) => {
+    try {
+        const payload = await jwt.verifyToken(req.headers?.token);
+        debug(payload);
+        
+        // Pass data onward to chain
+        if (!payload.iduser) throw { message: 'invalid signature'};
+        if (payload.isGuest) throw { message: 'Non-guest permissions required.'};
+        
+        req.iduser = payload.iduser;
+        
+        // Run the next part of the chain
+        next();
+
+    } catch(error) {
+        // Fake, expired or no token
+
+        const myError = new StdResponse(
+            'error',
+            'middleware',
+            { msg: [error.message.replace('jwt','token')] }
+        );
+        debug(myError);
+
+        // Determining the right status code        
+        switch(error.message) {
+            case 'Non-guest permissions required.':
+                res.status(403).json(myError);
+                break;
+            case 'jwt must be provided':
+            case 'jwt expired':
+                res.status(401).json(myError);
+                break;
+            case 'invalid signature':
+                res.status(400).json(myError);
+                break;
+            default:
+                res.status(500).json();
+        }
+    }
+}
+
+/**
  * Verifies the token from req is authentic and belongs to an admin
  */
 const isAdmin = async(req, res, next) => {
@@ -94,5 +139,6 @@ const isAdmin = async(req, res, next) => {
 
 module.exports = {
     isUser,
+    isNonGuest,
     isAdmin
 }

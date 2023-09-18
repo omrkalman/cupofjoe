@@ -87,11 +87,15 @@ router.post('/login', async(req, res) => {
 
         // Giving out a token
         // Including in token payload info about admin or not
-        const { iduser, isAdmin } = match; 
-        const token = isAdmin ? 
-                await jwt.generateToken({ iduser, isAdmin })
-            :
-                await jwt.generateToken({ iduser }, '3d');
+        const { iduser, isAdmin, isGuest } = match; 
+        let token;
+        if (isAdmin) {
+            token = await jwt.generateToken({ iduser, isAdmin });
+        } else if (isGuest) {
+            token = await jwt.generateToken({ iduser, isGuest })
+        } else {
+            token = await jwt.generateToken({ iduser }, '3d');
+        }
 
         // Notifying success
         res.json(new StdResponse(
@@ -181,49 +185,9 @@ router.post('/register', async(req, res) => {
 });
 
 
-// PATCH 127.0.0.1:3000/api/auth/resetpw
-// Details in req body
-router.patch('/resetpw', mw.isUser, async(req, res) => {
-    debug('RESETPW');
-    try {
-        const pw = await validator(req.body, 'reset pw');
-
-        pw.pw = await bcrypt.createHash(pw.pw);
-
-        if (!await model.setById(req.iduser, pw)) {
-            throw new StdResponse(
-                'error',
-                'model', 
-                { msg: [`User ${req.iduser} wasn't found.`] } 
-            );
-        }
-
-        // Notifying success
-        res.json(new StdResponse(
-            'success', 
-            'model', 
-            { msg: [`Password was changed successfully.`] }
-        ));
-
-    } catch(error) {
-        debug(error);
-        switch (error.origin) {
-            case 'validation':
-                res.status(400).json(error);
-                break;
-            case 'model':
-                res.status(404).json(error);
-                break;
-            default:
-                res.status(500).json();
-        }
-    }
-});
-
-
 // PATCH 127.0.0.1:3000/api/auth/edit
 // Details in req body
-router.patch('/edit', mw.isUser, async(req, res) => {
+router.patch('/edit', mw.isNonGuest, async(req, res) => {
     debug('EDIT');
     try {
         const detail = await validator(req.body, 'edit user detail');
